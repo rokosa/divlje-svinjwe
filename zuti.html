@@ -13,6 +13,19 @@
   position: absolute;
   background-color: red;
 }
+  <style>
+#container {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  background: yellow;
+}
+#animate {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-color: red;
+}
 </style>
   
 <body>
@@ -94,7 +107,82 @@ function myFunction() {
 }
 </script>
 
-  
+  <h2>DOM</h2>
+
+<div id="main">
+<p>DOM je jako koristan</p>
+<p>Primjer <b>Podebljani tekst</b> koristimo vrlo često</p>
+</div>
+
+<p id="demo"></p>
+
+<script>
+var x = document.getElementById("main");
+var y = x.getElementsByTagName("p");
+document.getElementById("demo").innerHTML =
+'The first paragraph (index 0) inside "main" is: ' + y[0].innerHTML;
+</script>
+
+
+
+
+<p><button onclick="myMove()">Pokreni animaciju</button></p>
+
+<div id ="container">
+  <div id ="animate"></div>
+</div>
+
+<script>
+function myMove() {
+  var elem = document.getElementById("animate");
+  var pos = 0;
+  var id = setInterval(frame, 5);
+  function frame() {
+    if (pos == 350) {
+      clearInterval(id);
+    } else {
+      pos++;
+      elem.style.top = pos + "px";
+      elem.style.left = pos + "px";
+    }
+  }
+}
+</script>
+
+<p>Prtisni gumb da vidiš vrijeme</p>
+
+<button id="myBtn">Pokazi vrijeme</button>
+
+<p id="demo"></p>
+
+<script>
+document.getElementById("myBtn").onclick = displayDate;
+
+function displayDate() {
+  document.getElementById("demo").innerHTML = Date();
+}
+</script>
+
+
+<h2>JavaScript HTML DOM</h2>
+
+<p>Pozdrav </p>
+
+<p>PLAva</p>
+
+<p>Boja</p>
+
+<button onclick="myFunction()">Obojaj u plavo</button>
+
+<script>
+function myFunction() {
+  var myCollection = document.getElementsByTagName("p");
+  var i;
+  for (i = 0; i < myCollection.length; i++) {
+    myCollection[i].style.color = "blue";
+  }
+}
+</script>
   
   
   
